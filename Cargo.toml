@@ -9,7 +9,7 @@ readme = "README.md"
 keywords = ["rabbitmq", "amqp", "quorum-queue", "actor", "lapin"]
 categories = ["network-programming", "asynchronous"]
 exclude = ["docs/", "README.de.md"]
-# repository = "https://github.com/<user>/<repo>"
+repository = "https://github.com/loopmaxx/rabbitmq-actor"
 
 [features]
 default = ["rustls"]
