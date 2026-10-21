@@ -1,4 +1,4 @@
-# amqp_actor_lib
+# rabbitmq-actor
 
 An actor-based RabbitMQ client for Rust, built on [`lapin`](https://crates.io/crates/lapin) and tokio.
 
