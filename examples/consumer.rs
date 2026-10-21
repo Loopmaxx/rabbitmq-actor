@@ -1,5 +1,5 @@
 //! cargo run --example consumer -- examples/config.json
-use amqp_actor_lib::{AmqpClient, AmqpConfig, HandlerResult, MessageMeta, TypedMessageHandler};
+use rabbitmq_actor::{AmqpClient, AmqpConfig, HandlerResult, MessageMeta, TypedMessageHandler};
 use serde::Deserialize;
 
 #[derive(Deserialize)]

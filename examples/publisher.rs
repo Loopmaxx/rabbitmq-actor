@@ -1,7 +1,7 @@
 //! cargo run --example publisher -- examples/config.json
 use std::time::Duration;
 
-use amqp_actor_lib::{AmqpClient, AmqpConfig, AmqpError, MessagePublisher, Publishable};
+use rabbitmq_actor::{AmqpClient, AmqpConfig, AmqpError, MessagePublisher, Publishable};
 use serde::Serialize;
 
 #[derive(Serialize)]

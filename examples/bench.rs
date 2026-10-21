@@ -7,7 +7,7 @@
 
 use std::{sync::Arc, time::Instant};
 
-use amqp_actor_lib::{AmqpClient, AmqpConfig, MessagePublisher, OutgoingMessage};
+use rabbitmq_actor::{AmqpClient, AmqpConfig, MessagePublisher, OutgoingMessage};
 use lapin::{
     BasicProperties, Connection, ConnectionProperties,
     options::{BasicPublishOptions, ConfirmSelectOptions},
