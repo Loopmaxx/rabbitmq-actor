@@ -73,22 +73,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "amqp_actor_lib"
-version = "0.1.0"
-dependencies = [
- "async-trait",
- "futures-util",
- "lapin",
- "serde",
- "serde_json",
- "thiserror",
- "tokio",
- "tokio-util",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "asn1-rs"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1564,6 +1548,22 @@ name = "r-efi"
 version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+
+[[package]]
+name = "rabbitmq-actor"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "futures-util",
+ "lapin",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "tokio",
+ "tokio-util",
+ "tracing",
+ "tracing-subscriber",
+]
 
 [[package]]
 name = "rand"
