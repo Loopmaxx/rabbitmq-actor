@@ -1,0 +1,42 @@
+{
+  "connection": {
+    "urls": ["amqp://guest:guest@localhost:5672/<YOUR_HOST>"],
+    "connection_name": "example-service",
+    "health_check_interval_ms": 5000
+  },
+  "reconnect": {
+    "initial_delay_ms": 500,
+    "max_delay_ms": 30000,
+    "multiplier": 2.0,
+    "jitter": 0.2,
+    "max_attempts": null
+  },
+  "publisher": {
+    "confirm_timeout_ms": 5000,
+    "persistent": true,
+    "mandatory": false
+  },
+  "exchanges": [
+    { "name": "orders", "kind": "topic" },
+    { "name": "orders.dlx", "kind": "fanout" }
+  ],
+  "queues": [
+    {
+      "name": "orders.created",
+      "queue_type": "quorum",
+      "bindings": [{ "exchange": "orders", "routing_keys": ["order.created"] }],
+      "quorum": {
+        "delivery_limit": 5,
+        "dead_letter_exchange": "orders.dlx",
+        "dead_letter_strategy": "at-least-once",
+        "overflow": "reject-publish"
+      },
+      "consumer": { "prefetch_count": 20 }
+    },
+    {
+      "name": "orders.dead-letter",
+      "queue_type": "quorum",
+      "bindings": [{ "exchange": "orders.dlx", "routing_keys": ["#"] }]
+    }
+  ]
+}

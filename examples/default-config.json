@@ -1,0 +1,61 @@
+{
+  "connection": {
+    "urls": ["amqp://guest:guest@localhost:5672/<YOUR_HOST>"],
+    "connection_name": null,
+    "health_check_interval_ms": 5000,
+    "connect_timeout_ms": 10000,
+    "operation_timeout_ms": 10000,
+    "heartbeat_secs": 10
+  },
+  "reconnect": {
+    "initial_delay_ms": 500,
+    "max_delay_ms": 30000,
+    "multiplier": 2.0,
+    "jitter": 0.2,
+    "max_attempts": null
+  },
+  "publisher": {
+    "confirm_timeout_ms": 5000,
+    "persistent": true,
+    "mandatory": false
+  },
+  "exchanges": [
+    {
+      "name": "default.exchange",
+      "kind": "topic",
+      "durable": true,
+      "auto_delete": false
+    }
+  ],
+  "queues": [
+    {
+      "name": "default.queue",
+      "queue_type": "quorum",
+      "durable": true,
+      "exclusive": false,
+      "auto_delete": false,
+      "bindings": [
+        { "exchange": "default.exchange", "routing_keys": ["#"] }
+      ],
+      "quorum": {
+        "delivery_limit": null,
+        "dead_letter_exchange": null,
+        "dead_letter_routing_key": null,
+        "dead_letter_strategy": null,
+        "overflow": null,
+        "initial_group_size": null,
+        "max_length": null,
+        "max_length_bytes": null
+      },
+      "consumer": {
+        "prefetch_count": 10,
+        "consumer_tag": null,
+        "max_requeues": 20,
+        "handler_timeout_ms": null
+      },
+      "arguments": {}
+    }
+  ],
+  "mailbox_capacity": 1024,
+  "shutdown_timeout_ms": 10000
+}
